@@ -14,16 +14,14 @@ router.post('/addProducts', (req, res, next) => {
     }).catch(next);
 });
 
-// router.get('/products',(req,res,next)=>{
-//     Product.find({},(err,products)=>
-//     {
-//         if(err){
-//             res.json(next)
-//         }
-//         res.json(products)
-//     });
-// })
-
-
+router.get('/allProducts',(req,res,next)=>{
+    Product.find({},(err,product)=>
+    {
+        if(err){
+            res.json(next)
+        }
+        res.json(product)
+    });
+})
 
 module.exports = router;
