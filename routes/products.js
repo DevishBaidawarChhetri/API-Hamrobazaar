@@ -2,27 +2,28 @@ const express = require('express');
 const Product = require('../models/products');
 const router = express.Router();
 
-
-
-router.get('/',(req,res,next)=>{
-    Product.find({},(err,products)=>
-    {
-        if(err){
-            res.json(next)
-        }
-        res.json(products)
-    });
-})
-
-router.post('/',(req,res,next)=>{
+router.post('/addProducts', (req, res, next) => {
     Product.create({
-        name:req.body.name,
-        price:req.body.price,
-        condition:req.body.condition,
-        image:req.body.image
-    }).then((product)=>{
-        res.json({status:"Product Added Successfully"});
-    }).catch(next);
-})
+        productName: req.body.productName,
+        productImage: req.body.productImage,
+        productPrice: req.body.productPrice,
+        productUseOrNot: req.body.productUseOrNot
 
-module.exports=router;
+    }).then((product) => {
+        res.json({ status: "Product Added Successfully"});
+    }).catch(next);
+});
+
+// router.get('/products',(req,res,next)=>{
+//     Product.find({},(err,products)=>
+//     {
+//         if(err){
+//             res.json(next)
+//         }
+//         res.json(products)
+//     });
+// })
+
+
+
+module.exports = router;

@@ -1,11 +1,13 @@
 const mongoose = require('mongoose');
 
 const userSchema = new mongoose.Schema({
+    profileImage: {
+        type: String,
+        required: true
+    },
     email: {
         type: String,
-        required: true,
-        unique: true,
-        minlength: 6
+        required: true
     },
     fullname: {
         type: String,
@@ -15,33 +17,25 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    conpassword: {
-        type: String,
-        required: true
-    },
-
     phone: {
         type: String,
         required: true
     },
-    mobile: {
+    mobileNumber: {
         type: String,
         required: true
     },
-    address1: {
+    streetName: {
         type: String,
         required: true
     },
-    address2: {
-        type: String,
-        required: true,
-    },
-    address3: {
+    areaLocation: {
         type: String,
         required: true
     },
-    image: {
-        type: String
+    cityName: {
+        type: String,
+        required: true
     },
     admin: {
         type: Boolean,
@@ -49,4 +43,4 @@ const userSchema = new mongoose.Schema({
     }
 });
 
-module.exports = mongoose.model('User', userSchema);
+module.exports = mongoose.model('tbl_user', userSchema);

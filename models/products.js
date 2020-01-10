@@ -1,22 +1,23 @@
 const mongoose = require('mongoose');
-
+ 
 const productSchema = new mongoose.Schema({
-    name: {
+    productName: {
         type: String,
         required: true
     },
-    price: {
+    productImage: {
         type: String,
         required: true
     },
-    condition: {
+    productPrice: {
         type: String,
         required: true
     },
-    
-    image: {
-        type: String
+     
+    productUseOrNot: {
+        type: String,
+        required: true
     }
 });
-
-module.exports = mongoose.model('Product', productSchema);
+ 
+module.exports = mongoose.model('tbl_product', productSchema);

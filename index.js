@@ -5,6 +5,7 @@ const userRouter = require('./routes/users');
 const productRouter = require('./routes/products');
 const dotenv = require('dotenv').config();
 const uploadRouter = require('./routes/upload');
+const uploadProductsImg = require('./routes/uploadProductImg')
 const auth = require('./auth');
 const cors = require('cors');
 
@@ -24,8 +25,11 @@ mongoose.connect(process.env.URL, { useNewUrlParser: true, useUnifiedTopology: t
 
 app.use('/users', userRouter);
 app.use('/upload', uploadRouter);
-app.use('/product', productRouter);
+app.use('/products', productRouter);
+app.use('/uploadProductImg', uploadProductsImg);
 app.use(auth.verifyUser);
+
+
 
 app.use((err, req, res, next) => {
     console.error(err.stack);
